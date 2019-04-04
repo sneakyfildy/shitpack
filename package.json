@@ -1,1 +1,21 @@
-
+{
+  "name": "shitpack",
+  "version": "6.6.6",
+  "scripts": {
+    "start": "webpack --config webpack.lib.config && webpack --config webpack.app.config"
+  },
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-dragdrop": "^1.0.13",
+    "angular-ui-sortable": "0.17.2",
+    "jquery": "^3.0.0",
+    "jquery-ui": "^1.12.1"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  },
+  "description": "shitpack demo",
+  "author": "sneakyfildy"
+}
