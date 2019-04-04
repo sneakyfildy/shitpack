@@ -17,24 +17,13 @@ module.exports =
             },
             // comment externals and app will work
             externals: [
-            {
-                'jquery': {
-                    commonjs: 'jquery',
-                    commonjs2: 'jquery',
-                },
-                'jquery-ui': {
-                    commonjs: 'jquery-ui',
-                    commonjs2: 'jquery-ui',
-                },
-                'angular': {
-                    commonjs: 'angular',
-                    commonjs2: 'angular',
-                },
-                'angular-ui-sortable': {
-                    commonjs: 'angular-ui-sortable',
-                    commonjs2: 'angular-ui-sortable',
-                }
-            }
+                'jquery',
+                'jquery-ui',
+                /jquery-ui\/*/,
+                'angular',
+                'angular-animate',
+                'angular-dragdrop',
+                'angular-ui-sortable'
             ],
             plugins: [
 //            new webpack.ProvidePlugin({
