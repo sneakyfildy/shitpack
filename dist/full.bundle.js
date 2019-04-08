@@ -95,9 +95,9 @@
 
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(true)
-		module.exports = factory();
+		module.exports = factory(__webpack_require__(/*! angular */ "./node_modules/angular/index.js"), __webpack_require__(/*! angular-animate */ "./node_modules/angular-animate/index.js"), __webpack_require__(/*! angular-dragdrop */ "./node_modules/angular-dragdrop/src/angular-dragdrop.js"), __webpack_require__(/*! angular-ui-sortable */ "./node_modules/angular-ui-sortable/src/sortable.js"), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! jquery-ui/ui/widgets/sortable */ "./node_modules/jquery-ui/ui/widgets/sortable.js"));
 	else {}
-})(window, function() {
+})(window, function(__WEBPACK_EXTERNAL_MODULE_angular__, __WEBPACK_EXTERNAL_MODULE_angular_animate__, __WEBPACK_EXTERNAL_MODULE_angular_dragdrop__, __WEBPACK_EXTERNAL_MODULE_angular_ui_sortable__, __WEBPACK_EXTERNAL_MODULE_jquery__, __WEBPACK_EXTERNAL_MODULE_jquery_ui_ui_widgets_sortable__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -193,14 +193,121 @@ return /******/ (function(modules) { // webpackBootstrap
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-__webpack_require__(/*! jquery-ui/ui/widgets/sortable */ "./node_modules/jquery-ui/ui/widgets/sortable.js");
-__webpack_require__(/*! angular */ "./node_modules/angular/index.js");
-__webpack_require__(/*! angular-animate */ "./node_modules/angular-animate/index.js");
-__webpack_require__(/*! angular-ui-sortable */ "./node_modules/angular-ui-sortable/src/sortable.js");
-__webpack_require__(/*! angular-dragdrop */ "./node_modules/angular-dragdrop/src/angular-dragdrop.js");
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "jquery");
+__webpack_require__(/*! jquery-ui/ui/widgets/sortable */ "jquery-ui/ui/widgets/sortable");
+__webpack_require__(/*! angular */ "angular");
+__webpack_require__(/*! angular-animate */ "angular-animate");
+__webpack_require__(/*! angular-ui-sortable */ "angular-ui-sortable");
+__webpack_require__(/*! angular-dragdrop */ "angular-dragdrop");
 
 module.exports = 'done';
+
+/***/ }),
+
+/***/ "angular":
+/*!**************************!*\
+  !*** external "angular" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_angular__;
+
+/***/ }),
+
+/***/ "angular-animate":
+/*!**********************************!*\
+  !*** external "angular-animate" ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_angular_animate__;
+
+/***/ }),
+
+/***/ "angular-dragdrop":
+/*!***********************************!*\
+  !*** external "angular-dragdrop" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_angular_dragdrop__;
+
+/***/ }),
+
+/***/ "angular-ui-sortable":
+/*!**************************************!*\
+  !*** external "angular-ui-sortable" ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_angular_ui_sortable__;
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jquery" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_jquery__;
+
+/***/ }),
+
+/***/ "jquery-ui/ui/widgets/sortable":
+/*!************************************************!*\
+  !*** external "jquery-ui/ui/widgets/sortable" ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_jquery_ui_ui_widgets_sortable__;
+
+/***/ })
+
+/******/ });
+});
+
+/***/ }),
+
+/***/ "./index.full.js":
+/*!***********************!*\
+  !*** ./index.full.js ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+const done = __webpack_require__(/*! ./dist/demo.bundle.js */ "./dist/demo.bundle.js");
+console.log(done === 'done');
+
+// will trigger an error because angular doesn't have jquery
+try {
+    angular.element('.shitpack');
+} catch (err) {
+    console.error(err);
+}
+
+angular.module('shipack', ['ui.sortable'])
+    .component('shipack', {
+        template: `
+<ul ui-sortable ng-model="$ctrl.items">
+    <li ng-repeat="item in $ctrl.items">{{item}}</li>
+</ul>`,
+        controller: function() {
+            this.items = [1, 2, 3, 4, 5];
+        }
+    });
+
+
+angular.element(document).ready(function () {
+    angular.bootstrap(document, ['shipack']);
+});
+
 
 /***/ }),
 
@@ -39878,7 +39985,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 
 	"use strict";
 
-	if (   true && typeof module.exports === "object" ) {
+	if (  true && typeof module.exports === "object" ) {
 
 		// For CommonJS and CommonJS-like environments where a proper `window`
 		// is present, execute the factory and get jQuery.
@@ -50226,47 +50333,6 @@ if ( !noGlobal ) {
 
 return jQuery;
 } );
-
-
-/***/ })
-
-/******/ });
-});
-
-/***/ }),
-
-/***/ "./index.full.js":
-/*!***********************!*\
-  !*** ./index.full.js ***!
-  \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-const done = __webpack_require__(/*! ./dist/demo.bundle.js */ "./dist/demo.bundle.js");
-console.log(done === 'done');
-
-// will trigger an error because angular doesn't have jquery
-try {
-    angular.element('.shitpack');
-} catch (err) {
-    console.error(err);
-}
-
-angular.module('shipack', ['ui.sortable'])
-    .component('shipack', {
-        template: `
-<ul ui-sortable ng-model="$ctrl.items">
-    <li ng-repeat="item in $ctrl.items">{{item}}</li>
-</ul>`,
-        controller: function() {
-            this.items = [1, 2, 3, 4, 5];
-        }
-    });
-
-
-angular.element(document).ready(function () {
-    angular.bootstrap(document, ['shipack']);
-});
 
 
 /***/ })
